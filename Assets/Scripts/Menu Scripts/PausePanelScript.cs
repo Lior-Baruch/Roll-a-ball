@@ -4,23 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseController : MonoBehaviour
-{
-    public static bool GameIsPaused = false;
-    public GameObject PauseMenuUI;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+public class PausePanelScript : MonoBehaviour
+{
+    public GameObject PauseMenuUI;
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            if (!GameIsPaused)
+            if (!GameActions.GameIsPaused)
             {
                 Pause();
             }
@@ -34,25 +28,21 @@ public class PauseController : MonoBehaviour
     private void Pause()
     {
         PauseMenuUI.SetActive(true);
-        Time.timeScale = 0.0f;
-        GameIsPaused = true;
+        GameActions.Pause();
     }
 
     public void Resume()
     {
         PauseMenuUI.SetActive(false);
-        Time.timeScale = 1.0f;
-        GameIsPaused = false;
+        GameActions.Resume();
     }
 
     public void Quit()
     {
-        UnityEditor.EditorApplication.isPlaying = false;
-        Application.Quit();
+        GameActions.Quit();
     }
 
-    public void RestartScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+
+
+
 }

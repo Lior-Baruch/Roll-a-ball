@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: b38d7dc0f9d07894d8ebcd773342112c, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -268,9 +268,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1723616502}
-        m_TargetAssemblyTypeName: PauseController, Assembly-CSharp
-        m_MethodName: Quit
+      - m_Target: {fileID: 1723616503}
+        m_TargetAssemblyTypeName: GameOverScript, Assembly-CSharp
+        m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -732,9 +732,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1723616502}
-        m_TargetAssemblyTypeName: PauseController, Assembly-CSharp
-        m_MethodName: RestartScene
+      - m_Target: {fileID: 1723616503}
+        m_TargetAssemblyTypeName: GameOverScript, Assembly-CSharp
+        m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1117,7 +1117,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &875321095
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1418,7 +1418,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1723616502}
-        m_TargetAssemblyTypeName: PauseController, Assembly-CSharp
+        m_TargetAssemblyTypeName: PausePanelScript, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 1
         m_Arguments:
@@ -1739,10 +1739,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7277ae13bdf141c4ab82dc13ebb4b669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 16
-  JumpForce: 128
-  CountText: {fileID: 618056306}
-  WinText: {fileID: 2130825893}
+  m_Speed: 0
+  m_JumpForce: 0
+  m_Score: 0
 --- !u!54 &1075748525
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2401,6 +2400,7 @@ GameObject:
   - component: {fileID: 1723616499}
   - component: {fileID: 1723616498}
   - component: {fileID: 1723616502}
+  - component: {fileID: 1723616503}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2504,6 +2504,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenuUI: {fileID: 1438866171}
+--- !u!114 &1723616503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723616497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0969c7add1eabb74a81654232025d225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameOverMenuUI: {fileID: 1884000498}
+  Player: {fileID: 1075748519}
+  Ground: {fileID: 1563915723}
 --- !u!1001 &1726372215
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2848,7 +2863,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1723616502}
-        m_TargetAssemblyTypeName: PauseController, Assembly-CSharp
+        m_TargetAssemblyTypeName: PausePanelScript, Assembly-CSharp
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
