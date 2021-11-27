@@ -109,11 +109,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 509aa81a5c080084bbc0936921316b58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ForcePower: 300
+  ForcePower: 600
   MaxForceX: 200
   MaxForceY: 0
   MaxForceZ: 200
-  IntervalTime: 1
+  IntervalTime: 0.1
 --- !u!54 &8628029160461603720
 Rigidbody:
   m_ObjectHideFlags: 0
