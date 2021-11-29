@@ -21,8 +21,14 @@ public static class GameActions
 
     public static void Quit()
     {
-        UnityEditor.EditorApplication.isPlaying = false;
-        Application.Quit();
+        if (Application.isEditor)
+        {
+            UnityEditor.EditorApplication.isPlaying = false;
+        }
+        else
+        {
+            Application.Quit();
+        }
     }
 
     public static void RestartScene()
